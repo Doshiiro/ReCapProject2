@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Business.Concrete
 {
     public class CarManager : ICarService
@@ -16,13 +17,25 @@ namespace Business.Concrete
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
-        } 
+        }
+
+       
 
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
         }
 
-      
+        public List<Car> GetByBrandId(int id)
+        {
+            return _carDal.GetAll(c => c.BrandId == id);
+        }
+
+        public List<Car> GetByColorId(int id)
+        {
+            return _carDal.GetAll(c => c.ColorId == id);
+        }
     }
 }
+
+
