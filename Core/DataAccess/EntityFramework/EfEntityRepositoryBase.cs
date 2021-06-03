@@ -24,10 +24,7 @@ namespace Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
 
-
-
-        }
-
+      }
         public void Delete(TEntity entity)
         {
             using (TContext context = new TContext())
@@ -37,7 +34,6 @@ namespace Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
         }
-
         public TEntity Get(Expression<Func<TEntity, bool>> filter = null)
         {
             using (TContext context = new TContext())
