@@ -27,15 +27,15 @@ namespace Business.Concrete
         {
             if (car.CarName.Length < 2)
             {
-                return new ErrorResult(Messages.CarNameInvalid);
+                return new ErrorResult(CarMessages.CarNameInvalid);
             }
 
             if (car.DailyPrice < 0)
             {
-                return new ErrorResult(Messages.CarPriceInvalid);
+                return new ErrorResult(CarMessages.CarPriceInvalid);
             }
             _carDal.Add(car);
-            return new SuccessResult(Messages.CarAdded);
+            return new SuccessResult(CarMessages.CarAdded);
 
 
 
@@ -47,16 +47,16 @@ namespace Business.Concrete
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
-            return new SuccessResult(Messages.CarDeleted);
+            return new SuccessResult(CarMessages.CarDeleted);
         }
 
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour == 13)
             {
-                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+                return new ErrorDataResult<List<Car>>(CarMessages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), CarMessages.CarsListed);
         }
 
         public IDataResult<List<Car>> GetByBrandId(int id)
@@ -73,7 +73,7 @@ namespace Business.Concrete
         {
             if (DateTime.Now.Hour == 15)
             {
-                return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
+                return new ErrorDataResult<List<CarDetailDto>>(CarMessages.MaintenanceTime);
             }
             
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
@@ -82,7 +82,7 @@ namespace Business.Concrete
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-            return new SuccessResult(Messages.CarUpdated);
+            return new SuccessResult(CarMessages.CarUpdated);
         }
     }
 }

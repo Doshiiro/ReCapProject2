@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Constants
 {
-    public class Messages
+    public class CarMessages
     {
         public static string CarAdded = "Araba eklendi";
         public static string CarDeleted = "Araba silindi";
@@ -14,7 +14,11 @@ namespace Business.Constants
         public static string CarNameInvalid = "Araba ismi geçersiz";
         public static string CarPriceInvalid = "Araba fiyatı geçersiz";
         public static string CarsListed = "Arabalar listelendi";
+
+
+
         public static string MaintenanceTime = "Bakım Zamanı";
+
 
     }
 }
