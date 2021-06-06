@@ -13,7 +13,37 @@ namespace ConsoleUI
         {
             //CarTest();
             //ColorTest();
-            BrandTest();
+            //BrandTest();
+            //UserTest();
+            //CustomerTest();
+            //RentalTest();
+        }
+
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            foreach (var rental in rentalManager.GetById(1).Data)
+            {
+                Console.WriteLine(rental.RentDate);
+            }
+        }
+
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            foreach (var customer in customerManager.GetById(1).Data)
+            {
+                Console.WriteLine(customer.CompanyName);
+            }
+        }
+
+        private static void UserTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            foreach (var user in userManager.GetById(1).Data)
+            {
+                Console.WriteLine(user.FirstName);
+            }
         }
 
         private static void BrandTest()
