@@ -5,6 +5,7 @@ using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 
+
 namespace ConsoleUI
 {
     class Program
@@ -17,14 +18,17 @@ namespace ConsoleUI
             //UserTest();
             //CustomerTest();
             //RentalTest();
+           
+        
         }
 
         private static void RentalTest()
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            foreach (var rental in rentalManager.GetById(1).Data)
+
+            foreach (var rental in rentalManager.GetAll().Data)
             {
-                Console.WriteLine(rental.RentDate);
+                Console.WriteLine(rental.ReturnDate);
             }
         }
 
@@ -67,9 +71,9 @@ namespace ConsoleUI
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            
+
             var result = carManager.GetCarDetails();
-            if (result.Success==true)
+            if (result.Success == true)
             {
                 foreach (var car in result.Data)
                 {
@@ -80,7 +84,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-
 
         }
     }
