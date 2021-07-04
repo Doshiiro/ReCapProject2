@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class CarValidatior:AbstractValidator<Car>
+    public class CarValidatior : AbstractValidator<Car>
     {
         public CarValidatior()
         {
@@ -17,8 +17,9 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.DailyPrice).GreaterThan(0);
             RuleFor(c => c.Description).MinimumLength(2);
             RuleFor(c => c.CarName).MinimumLength(1);
+            RuleFor(c => c.CarName).NotEmpty();
             RuleFor(c => c.Description).NotEmpty();
-            //RuleFor(c => c.Description).Must(StartWithA).WithMessage("Açıklama A ile başlıyamaz");
+            //RuleFor(c => c.Description).Must(StartWithA).WithMessage("Açıklama 'A' ile başlamalı");
         }
 
         //private bool StartWithA(string arg)
